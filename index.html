@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniversário de Namoro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://www.icegif.com/wp-content/uploads/icegif-4803.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .title {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #d63384;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+        .message {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #d63384;
+        }
+        .counter {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #d63384;
+        }
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .photo-gallery img {
+            width: 80px; /* Ajuste o tamanho das imagens */
+            height: 80px; /* Ajuste o tamanho das imagens */
+            object-fit: cover; /* Mantém a proporção e evita distorção */
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h1>Feliz Aniversário de Namoro, minha bebezinha linda.</h1>
+        </div>
+
+        <video autoplay loop muted>
+            <source src="images/video1y4m (1).mp4" type="video/mp4">
+            Seu navegador não suporta o formato de vídeo.
+        </video>
+
+        <div class="message">
+            <p>Meu amor, eu te amo mais que tudo e quero sempre te ver bem. Tenho muito orgulho de você, conta comigo pra tudo, i love you, you are the love of my life. De: zazão para kekel</p>
+        </div>
+
+        <div class="counter">
+            <p id="timeCounter">Contando o tempo...</p>
+        </div>
+    </div>
+
+    <div class="photo-gallery">
+        <img src="images/viraano.jpg" alt="Foto 1">
+        <img src="images/deitado.jpg" alt="Foto 2">
+        <img src="images/mascara.jpg" alt="Foto 4">
+        <img src="images/roda-gigante.jpg" alt="Foto 5">
+        <img src="images/parque_1.jpg" alt="Foto 6">
+    </div>
+
+    <script>
+        function updateCounter() {
+            const startDate = new Date("2023-04-02");
+            const now = new Date();
+
+            let years = now.getFullYear() - startDate.getFullYear();
+            if (now.getMonth() < startDate.getMonth() || (now.getMonth() === startDate.getMonth() && now.getDate() < startDate.getDate())) {
+                years--;
+            }
+
+            let months = now.getMonth() - startDate.getMonth();
+            if (now.getDate() < startDate.getDate()) {
+                months--;
+            }
+            if (months < 0) {
+                months += 12;
+            }
+
+            let days = now.getDate() - startDate.getDate();
+            if (days < 0) {
+                const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+
+            document.getElementById('timeCounter').innerText = 
+                `Já se passaram ${years} anos, ${months} meses e ${days} dias desde o início do nosso namoro!`;
+        }
+
+        setInterval(updateCounter, 1000 * 60 * 60 * 24);
+        window.onload = () => {
+            updateCounter();
+        };
+    </script>
+
+</body>
+</html>
